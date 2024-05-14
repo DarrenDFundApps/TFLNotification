@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFLNotifications.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFLNotifications.Repository", "TFLNotifications.Repository\TFLNotifications.Repository.csproj", "{18F7C72A-7630-40D3-9F6F-52976A4AD1A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFLNotifications.PullDown", "TFLNotifications.PullDown\TFLNotifications.PullDown.csproj", "{FF35A15C-0953-4F0F-8C65-85F92BDAF1BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{18F7C72A-7630-40D3-9F6F-52976A4AD1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F7C72A-7630-40D3-9F6F-52976A4AD1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F7C72A-7630-40D3-9F6F-52976A4AD1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF35A15C-0953-4F0F-8C65-85F92BDAF1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF35A15C-0953-4F0F-8C65-85F92BDAF1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF35A15C-0953-4F0F-8C65-85F92BDAF1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF35A15C-0953-4F0F-8C65-85F92BDAF1BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
