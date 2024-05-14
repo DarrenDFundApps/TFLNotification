@@ -1,0 +1,6 @@
+@TFLNotifications.API_HostAddress = http://localhost:5122
+
+GET {{TFLNotifications.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
