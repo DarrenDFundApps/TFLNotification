@@ -1,5 +1,7 @@
 ﻿using System.Net;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using TFLNotifications.API.Controllers.Payload;
 
 namespace TFLNotifications.API.Controllers;
 
@@ -7,23 +9,16 @@ namespace TFLNotifications.API.Controllers;
 [ApiController]
 public class SubscribeController : ControllerBase
 {
-    [HttpGet("/line/{lineName}")]
-    public string GetByLineStatus(string lineName)
+
+
+    [HttpPost]
+    public async Task<IActionResult> PostSlack()
     {
+        var rawRequestBody = await Request.GetRawBodyAsync();
+        var payload = SlackCommandHelper.ExtractData(rawRequestBody);
+        Console.WriteLine($"Raw request:{rawRequestBody}");
+        Console.WriteLine($"Payload:{payload}");
 
-
-        return $"Done for {lineName}";
-    }
-
-    [HttpGet("/all")]
-    public HttpStatusCode GetAll()
-    {
-        return HttpStatusCode.Accepted;
-    }
-
-    [HttpGet("/station/{stationName}")]
-    public HttpStatusCode GetByStationName(string stationName)
-    {
-        return HttpStatusCode.Accepted;
+        return  Ok();
     }
 }
