@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFLNotifications.API", "TFLNotifications.API\TFLNotifications.API.csproj", "{40896B4C-EF6C-43C9-B2DA-E32895164A2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFLNotifications.Domain", "TFLNotifications.Domain\TFLNotifications.Domain.csproj", "{F2443513-3CA4-4D61-8315-920FF19730CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{40896B4C-EF6C-43C9-B2DA-E32895164A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40896B4C-EF6C-43C9-B2DA-E32895164A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40896B4C-EF6C-43C9-B2DA-E32895164A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2443513-3CA4-4D61-8315-920FF19730CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2443513-3CA4-4D61-8315-920FF19730CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2443513-3CA4-4D61-8315-920FF19730CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2443513-3CA4-4D61-8315-920FF19730CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
