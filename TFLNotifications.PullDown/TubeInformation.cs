@@ -52,7 +52,7 @@ public class TubeInformation
                 stationStatuses.AddRange(lineStatus.routeSections.Select(station => new StationStatus()
                 {
                     StationId = Guid.NewGuid(),
-                    StationName = station.originationName,
+                    StationName = station.originationName.Replace("Underground Station", "", StringComparison.OrdinalIgnoreCase)
                     Status = status.statusSeverity == 6 ? SeverityStatus.Major : SeverityStatus.Minor,
                     Description = status.reason,
                     FromDate = fromDate,
