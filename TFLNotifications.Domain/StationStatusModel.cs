@@ -21,6 +21,7 @@ public enum Lines
     WaterlooAndCity,
 }
 
+
 public class StationStatusModel(
     string stationName,
     SeverityStatus status,
