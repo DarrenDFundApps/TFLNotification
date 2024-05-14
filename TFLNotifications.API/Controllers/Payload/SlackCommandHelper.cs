@@ -28,13 +28,22 @@ public static class SlackCommandHelper
         return body;
     }
 
-    public static SlackCommandPayload ExtractData(string rawBody)
+    public static SlackCommandPayload ExtractPayload(string rawBody)
     {
-        var expression = new Regex(@"&user_id=(?<UserId>[\w]*)&user_name=(?<Username>[\w]*)&command=(?<Command>[%\w]*)&text=(?<Text>[\w]*)&api_app_id=([\w]*)&is_enterprise_install=([\w]*)&response_url=(?<responseUrl>[%\W\w]*)&trigger_id");
+        var expression = new Regex(@"&user_id=(?<UserId>[\w]*)&user_name=(?<Username>[\w]*)&command=(?<Command>[%\w]*)&text=(?<Text>[-+\w]*)&api_app_id=([\w]*)&is_enterprise_install=([\w]*)&response_url=(?<responseUrl>[%\W\w]*)&trigger_id");
         var results = expression.Matches(rawBody);
         var match = results.First();
         var requestUrl = match.Groups["responseUrl"].Value.Replace("%2F", "/").Replace("%3A", ":");
         return new SlackCommandPayload(match.Groups["UserId"].Value, match.Groups["Username"].Value,
-            match.Groups["Text"].Value, requestUrl);
+            match.Groups["Text"].Value, requestUrl, ExtractCommand(match.Groups["Text"].Value));
+    }
+
+    private static SlackAction ExtractCommand(string text)
+    {
+        var expression = new Regex(@"-(?<Action>[\w]*)\+(?<Parameter>[\w]*)");
+        var results = expression.Matches(text);
+        var match = results.First();
+        var action =  (ActionType)Enum.Parse(typeof(ActionType), match.Groups["Action"].Value, true);
+        return new SlackAction(action, match.Groups["Parameter"].Value);
     }
 }

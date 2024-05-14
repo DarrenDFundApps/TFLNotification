@@ -13,6 +13,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TFLNotifications.Domain\TFLNotifications.Domain.csproj" />
+      <ProjectReference Include="..\TFLNotifications.Repository\TFLNotifications.Repository.csproj" />
     </ItemGroup>
 
 </Project>

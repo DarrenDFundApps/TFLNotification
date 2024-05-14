@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TFLNotifications.API.Services;
 using TFLNotifications.Domain;
 
 namespace TFLNotifications.API.Controllers;
@@ -7,33 +8,24 @@ namespace TFLNotifications.API.Controllers;
 [ApiController]
 public class StatusController : ControllerBase
 {
-
-    private readonly IEnumerable<StationStatusModel> _stations = new List<StationStatusModel>()
-    {
-        new("Moorgate", SeverityStatus.Minor, "Broken", DateTime.Now, Lines.Northern),
-        new("Ealing", SeverityStatus.Major, "Broken Seriously", DateTime.Now, Lines.District),
-        new("Victoria", SeverityStatus.Minor, "Broken", DateTime.Now, Lines.Victoria)
-    };
-
+    private StatusService _statusService = new StatusService();
     [HttpGet("line/{lineName}")]
     public IEnumerable<StationStatusModel> GetByLineStatus(string lineName)
     {
-        var lineEnum = (Lines)Enum.Parse(typeof(Lines), lineName, true);;
-        var stations = _stations.Where(s => s.Line == lineEnum);
+        var lineEnum = (Lines)Enum.Parse(typeof(Lines), lineName, true);
 
-        return stations;
+        return _statusService.GetByLineStatus(lineEnum);
     }
 
     [HttpGet("all")]
     public IEnumerable<StationStatusModel> GetAll()
     {
-        return _stations;
+        return _statusService.GetAll();
     }
 
     [HttpGet("station/{stationName}")]
     public IEnumerable<StationStatusModel> GetByStationName(string stationName)
     {
-        var stations = _stations.Where(s => s.StationName == stationName);
-        return stations;
+        return _statusService.GetStationStatus(stationName);
     }
 }
