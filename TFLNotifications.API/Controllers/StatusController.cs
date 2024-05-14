@@ -15,7 +15,7 @@ public class StatusController : ControllerBase
         new("Victoria", SeverityStatus.Minor, "Broken", DateTime.Now, Lines.Victoria)
     };
 
-    [HttpGet("/line/{lineName}")]
+    [HttpGet("line/{lineName}")]
     public IEnumerable<StationStatusModel> GetByLineStatus(string lineName)
     {
         var lineEnum = (Lines)Enum.Parse(typeof(Lines), lineName, true);;
@@ -24,13 +24,13 @@ public class StatusController : ControllerBase
         return stations;
     }
 
-    [HttpGet("/all")]
+    [HttpGet("all")]
     public IEnumerable<StationStatusModel> GetAll()
     {
         return _stations;
     }
 
-    [HttpGet("/station/{stationName}")]
+    [HttpGet("station/{stationName}")]
     public IEnumerable<StationStatusModel> GetByStationName(string stationName)
     {
         var stations = _stations.Where(s => s.StationName == stationName);
