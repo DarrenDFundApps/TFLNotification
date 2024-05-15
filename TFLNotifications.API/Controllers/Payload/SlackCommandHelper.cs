@@ -40,10 +40,10 @@ public static class SlackCommandHelper
 
     private static SlackAction ExtractCommand(string text)
     {
-        var expression = new Regex(@"-(?<Action>[\w]*)\+(?<Parameter>[\w]*)");
+        var expression = new Regex(@"-(?<Action>[\w]*)\+(?<Parameter>[\w+]*)");
         var results = expression.Matches(text);
         var match = results.First();
         var action =  (ActionType)Enum.Parse(typeof(ActionType), match.Groups["Action"].Value, true);
-        return new SlackAction(action, match.Groups["Parameter"].Value);
+        return new SlackAction(action, match.Groups["Parameter"].Value.Replace("+", " "));
     }
 }
